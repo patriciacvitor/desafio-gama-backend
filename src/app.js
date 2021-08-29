@@ -14,7 +14,8 @@ const cors = require('cors');
 
 
 // Conecta ao banco
-mongoose.connect('mongodb+srv://Patricia:MdbMongo135-*@cadastro.cwjil.mongodb.net/FormCadastro?retryWrites=true&w=majority');
+// mongoose.connect('mongodb+srv://Patricia:MdbMongo135-*@cadastro.cwjil.mongodb.net/FormCadastro?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://deploy:uploaddeploy@cadastro.cwjil.mongodb.net/FormCadastro?retryWrites=true&w=majority');
 
 // Carrega os modelos
 const Client = require('./models/client');
@@ -22,6 +23,11 @@ const Client = require('./models/client');
 // Carrega as rotas
 const indexRoute = require('./routes/index-route');
 const clientRoute = require('./routes/client-route');
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }));
 
 // app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
