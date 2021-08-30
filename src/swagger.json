@@ -1,0 +1,168 @@
+{"openapi": "3.0.0",
+    "info": {
+      "title": "API para Cadastro de Currículo da JobsNET",
+      "description": "Desafio feito durante o programa Start Tech (da Ambev e da Gama Academy) com o objetivo de desenvolver uma API de Cadastro de Currículos para a empresa Jobs.NET",
+      "contact": {
+        "email": "patriciav0711@gmail.com"
+      },
+      "version": "0.0.1"
+    },
+
+    "servers": [
+        {
+          "url": "http://localhost:3000",
+          "description": "Ambiente de Desenvolvimento"
+        }
+      ],
+
+    "paths": {
+        "/": {
+          "get": {
+            "summary": "Página de Cadastro",
+            "description": "Rota do formulário de cadastro"
+          }
+        },
+
+    "/clients": {
+          "post": {
+            "summary": "Cadastro do Candidato no banco de dados",
+            "description": "Rota de cadastro de usuário, recebe: nome completo, profissão, cargo pretendido, data de nascimento, estado civil, sexo, cep (que após preenchido consulta uma API para requisitar e preencher endereço, bairro, cidade e Estado (UF)), telefones fixos 1 e 2, celular, contato, e-mail, RG, CPF, veículo, habilitação",
+            "tags": ["Client"],
+            "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                        "$ref": "#/components/schemas/Client"
+                      },
+                      "properties": {
+                        "nomeCompleto": {
+                            "type": "string",
+                            "required": true,
+                            "trim": true
+                        },
+                        "profissao": {
+                            "type": "string",
+                            "required": true,
+                            "trim": true
+                        },
+                        "cargoPretendido": {
+                            "type": "string",
+                            "required": false,
+                            "trim": true
+                        },
+                        "dataNascimento": {
+                            "type": "date",
+                            "required": true
+                        },
+                        "estadoCivil": {
+                            "type": "string",
+                            "required": false
+                        },
+                        "sexo": {
+                            "type": "string",
+                            "required": false
+                        },
+                        "endereco": {
+                            "type": "string",
+                            "required": true,
+                            "trim": true
+                        },
+                        "bairro": {
+                            "type": "string",
+                            "required": true,
+                            "trim": true
+                        },
+                        "cidade": {
+                            "type": "string",
+                            "required": true,
+                            "trim": true
+                        },
+                        "estado": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "cep": {
+                            "type": "number",
+                            "required": true,
+                            "trim": true
+                        },
+                        "telFixo1": {
+                            "type": "number",
+                            "required": false,
+                            "trim": true
+                        },
+                        "telFixo2": {
+                            "type": "number",
+                            "required": false,
+                            "trim": true
+                        },
+                        "celular": {
+                            "type": "number",
+                            "required": true,
+                            "trim": true
+                        },
+                        "contato": {
+                            "type": "string",
+                            "required": false,
+                            "trim": true
+                        },
+                        "email": {
+                            "type": "string",
+                            "unique": true,
+                            "required": true,
+                            "lowercase": true,
+                            "trim": true
+                        },
+                        "rg": {
+                            "type": "number",
+                            "required": true,
+                            "trim": true
+                        },
+                        "cpf": {
+                            "type": "number",
+                            "unique": true,
+                            "required": true,
+                            "trim": true
+                        },
+                        "veiculo": {
+                            "type": "string",
+                            "required": false
+                        },
+                        "cnh": {
+                            "type": "string",
+                            "required": false
+                        }
+                    },
+                    "examples": {
+                        "cadastro": {
+                          "value": {                        
+                            "nomeCompleto": "Lala Lalala",
+                            "profissao": "Frontend Developer",
+                            "cargoPretendido": "Fullstack Developer",
+                            "dataNascimento": "13/07/1997",
+                            "estadoCivil": "Solteiro(a)",
+                            "sexo": "Feminino",
+                            "cep": "00000000",
+                            "endereco": "Rua Lalala",
+                            "bairro": "Blabla",
+                            "cidade": "Rosa",
+                            "estado": "SP",
+                            "telFixo1": "1199999999",
+                            "telFixo2": "1199999998",
+                            "celular": "11999999997",
+                            "contato": "Lala",
+                            "email": "lala@lalala.com",
+                            "rg": "000000000",
+                            "cpf": "00000000000",
+                            "veiculo": "Sim",
+                            "cnh": "Sim"                           
+                            }
+                        }
+                    }
+                }
+            }
+        }
+            }
+        }   
+    }
+}

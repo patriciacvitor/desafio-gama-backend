@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 
 const router = express.Router();
 
-// const swaggerUI = require('swagger-ui-express');
-// const swaggerDocs = require('./swagger.json');
+const swaggerUI = require('swagger-ui-express');
+const swaggerDocs = require('./swagger.json');
 
 const cors = require('cors');
 
@@ -29,7 +29,7 @@ const clientRoute = require('./routes/client-route');
 //     extended: false
 // }));
 
-// app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 app.use(express.json());
 app.use(express.urlencoded());

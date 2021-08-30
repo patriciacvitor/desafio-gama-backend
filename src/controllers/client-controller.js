@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Client = mongoose.model('Client');
 
 exports.post = (req, res, next) => {
-    var client = new Client(req.body); //(res.body);
+    var client = new Client(req.body);
     // client.nomeCompleto = req.body.name;
     // client.profissao = req.body.job;
     // client.cargoPretendido = req.body.job-position;
